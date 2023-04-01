@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.caneryildirim.artbook.view.FeedFragment"
+        android:label="ArtBook"
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_feedFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.caneryildirim.artbook.view.DetailFragment"
+        android:label="DetailArt"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detailFragment_to_imageApiFragment"
+            app:destination="@id/imageApiFragment" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageApiFragment"
+        android:name="com.caneryildirim.artbook.view.ImageApiFragment"
+        android:label="SelectImage"
+        tools:layout="@layout/fragment_image_api" >
+        <action
+            android:id="@+id/action_imageApiFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/imageApiFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
